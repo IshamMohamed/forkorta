@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Forkorta/Forkorta/obj
+/Forkorta/Forkorta.Tests/obj
+/Forkorta/Forkorta.Tests/bin/Debug/netcoreapp3.0
+/Forkorta/Forkorta/bin/Debug/netcoreapp2.2
+*.user
+/Forkorta/Forkorta.Tests/bin/Release/netcoreapp3.0
+/Forkorta/Forkorta/bin/Release/netcoreapp2.2
+/Forkorta/.vs/Forkorta
