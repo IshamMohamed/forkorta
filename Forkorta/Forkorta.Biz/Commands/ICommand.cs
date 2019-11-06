@@ -7,7 +7,7 @@ namespace Forkorta.Biz.Commands
 {
     public interface ICommand
     {
-        Task ExecuteAction();
+        Task<string> ExecuteAction();
     }
 
     public enum UrlAction

@@ -15,16 +15,16 @@ namespace Forkorta.Biz.Commands
             this.urlAction = urlAction;
         }
 
-        public async Task ExecuteAction()
+        public async Task<string> ExecuteAction()
         {
-            if(urlAction == UrlAction.Short)
+            if (urlAction == UrlAction.Short)
             {
-                await url.ShortenUrl();
+                return await url.ShortenUrl();
             }
 
-            if(urlAction == UrlAction.Deshort)
+            else
             {
-                await url.DeshortenUrl();
+                return await url.DeshortenUrl();
             }
         }
     }
