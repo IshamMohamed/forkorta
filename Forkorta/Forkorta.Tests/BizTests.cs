@@ -28,8 +28,8 @@ namespace Forkorta.Tests
         public async Task Is_Shorting_Url_And_Write_To_Table()
         {
             var url = "https://www.microsoft.com/en-my/";
-            SubjectUrl subjectUrl = new SubjectUrl(url, connectionString);
-            var result = await subjectUrl.ShortenUrl();
+            SubjectUrlForAzureTable subjectUrl = new SubjectUrlForAzureTable(url, connectionString);
+            var result = await subjectUrl.ShortenUrlAndSaveToAzureTable();
 
             Assert.NotNull(result);
         }
@@ -39,8 +39,8 @@ namespace Forkorta.Tests
         {
             var givenUrl = "MccLSngp";
             var expectedUrl = "https://www.microsoft.com/en-my/";
-            SubjectUrl subjectUrl = new SubjectUrl(givenUrl, connectionString);
-            var result = await subjectUrl.DeshortenUrl();
+            SubjectUrlForAzureTable subjectUrl = new SubjectUrlForAzureTable(givenUrl, connectionString);
+            var result = await subjectUrl.DeshortenUrlFromAzureTable();
 
             Assert.Equal(result, expectedUrl);
         }

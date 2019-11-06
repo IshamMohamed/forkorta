@@ -15,8 +15,8 @@ namespace Forkorta.Tests
         [Fact]
         public async Task Short_Url_Command_Returns_Not_Null()
         {
-            SubjectUrl url = new SubjectUrl("https://www.microsoft.com/en-my/", connectionString);
-            ICommand command = new ShortUrlCommand(url, UrlAction.Short);
+            SubjectUrlForAzureTable url = new SubjectUrlForAzureTable("https://www.microsoft.com/en-my/", connectionString);
+            ICommand command = new ShortUrlAzureTableCommand(url, UrlAction.Short);
             var result = await command.ExecuteAction();
 
             Assert.NotNull(result);
@@ -27,8 +27,8 @@ namespace Forkorta.Tests
         {
             var givenUrl = "MccLSngp";
             var expectedUrl = "https://www.microsoft.com/en-my/";
-            SubjectUrl url = new SubjectUrl(givenUrl, connectionString);
-            ICommand command = new ShortUrlCommand(url, UrlAction.Deshort);
+            SubjectUrlForAzureTable url = new SubjectUrlForAzureTable(givenUrl, connectionString);
+            ICommand command = new ShortUrlAzureTableCommand(url, UrlAction.Deshort);
             var result = await command.ExecuteAction();
 
             Assert.Equal(result, expectedUrl);

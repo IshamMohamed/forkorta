@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace Forkorta.Biz.Commands
 {
-    public class ShortUrlCommand : ICommand
+    public class ShortUrlAzureTableCommand : ICommand
     {
-        private readonly SubjectUrl url;
+        private readonly SubjectUrlForAzureTable url;
         private readonly UrlAction urlAction;
-        public ShortUrlCommand(SubjectUrl url, UrlAction urlAction)
+        public ShortUrlAzureTableCommand(SubjectUrlForAzureTable url, UrlAction urlAction)
         {
             this.url = url;
             this.urlAction = urlAction;
@@ -19,12 +19,12 @@ namespace Forkorta.Biz.Commands
         {
             if (urlAction == UrlAction.Short)
             {
-                return await url.ShortenUrl();
+                return await url.ShortenUrlAndSaveToAzureTable();
             }
 
             else
             {
-                return await url.DeshortenUrl();
+                return await url.DeshortenUrlFromAzureTable();
             }
         }
     }
