@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forkorta", "Forkorta\Forkor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forkorta.Tests", "Forkorta.Tests\Forkorta.Tests.csproj", "{8EACEC77-E466-46FE-962B-8000718FCF41}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forkorta.Biz", "Forkorta.Biz\Forkorta.Biz.csproj", "{9B64F8D4-0D92-4FBD-96B3-9FFB9780B9B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8EACEC77-E466-46FE-962B-8000718FCF41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EACEC77-E466-46FE-962B-8000718FCF41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EACEC77-E466-46FE-962B-8000718FCF41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B64F8D4-0D92-4FBD-96B3-9FFB9780B9B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B64F8D4-0D92-4FBD-96B3-9FFB9780B9B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B64F8D4-0D92-4FBD-96B3-9FFB9780B9B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B64F8D4-0D92-4FBD-96B3-9FFB9780B9B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
