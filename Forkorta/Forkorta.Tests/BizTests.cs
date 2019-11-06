@@ -1,4 +1,5 @@
 using Forkorta.Biz;
+using Forkorta.Biz.DataConnector;
 using System;
 using System.Threading.Tasks;
 using Xunit;
@@ -36,11 +37,21 @@ namespace Forkorta.Tests
         [Fact]
         public async Task Retrieve_Long_Url_For_Given_Short_Url()
         {
-            var url = "MccLSngp";
-            SubjectUrl subjectUrl = new SubjectUrl(url, connectionString);
+            var givenUrl = "MccLSngp";
+            var expectedUrl = "https://www.microsoft.com/en-my/";
+            SubjectUrl subjectUrl = new SubjectUrl(givenUrl, connectionString);
             var result = await subjectUrl.DeshortenUrl();
 
-            Assert.Equal("https://www.microsoft.com/en-my/", result);
+            Assert.Equal(result, expectedUrl);
+        }
+
+        [Fact]
+        public async Task Get_Datatable_From_AzureFiles()
+        {
+            var dataTableName = "datatable";
+            var result = await CommonOperations.ConfigureTableAsync(connectionString);
+
+            Assert.Equal(dataTableName, result.Name);
         }
     }
 }
