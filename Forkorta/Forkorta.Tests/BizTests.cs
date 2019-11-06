@@ -7,7 +7,7 @@ namespace Forkorta.Tests
 {
     public class BizTests
     {
-        string connectionString = "";
+        string connectionString = Environment.GetEnvironmentVariable("ForkortaTableStorageConnectionString", EnvironmentVariableTarget.User);
 
         [Fact]
         public void Is_Random_String_Generated()
