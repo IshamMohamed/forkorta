@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Forkorta.Biz.Commands
 {
+    /// <summary>
+    /// Command to short URL and save in Azure Table
+    /// </summary>
     public class ShortUrlAzureTableCommand : ICommand
     {
         private readonly SubjectUrlForAzureTable url;
@@ -15,6 +15,10 @@ namespace Forkorta.Biz.Commands
             this.urlAction = urlAction;
         }
 
+        /// <summary>
+        /// Do the action to short or deshort URL
+        /// </summary>
+        /// <returns>Shorten or Deshorten URL</returns>
         public async Task<string> ExecuteAction()
         {
             if (urlAction == UrlAction.Short)

@@ -1,16 +1,21 @@
 ﻿using Forkorta.Biz.Entities;
 using Microsoft.Azure.Cosmos.Table;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Forkorta.Biz.DataConnector
 {
     public class DataUtils
     {
+        /// <summary>
+        /// Insert or Merge an entity to the Azure Table Storage. Both Partition key and Row key must be provided.
+        /// Partition Key is the Shorten URL and Row Key is the long/orignial URL
+        /// </summary>
+        /// <param name="table">Azure Table Name</param>
+        /// <param name="entity">Entity object</param>
+        /// <returns></returns>
         public static async Task<UrlEntity> InsertOrMergeEntityAsync(CloudTable table, UrlEntity entity)
         {
             if (entity == null)
@@ -37,6 +42,12 @@ namespace Forkorta.Biz.DataConnector
             }
         }
 
+        /// <summary>
+        /// Get the entity from Azure Table storage for a given partition key. Patition key must be provided
+        /// </summary>
+        /// <param name="table"></param>
+        /// <param name="partitionKey"></param>
+        /// <returns></returns>
         public static UrlEntity RetrieveEntityUsingPartitionKey(CloudTable table, string partitionKey)
         {
             try

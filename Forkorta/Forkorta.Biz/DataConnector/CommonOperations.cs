@@ -1,13 +1,16 @@
 ﻿using Microsoft.Azure.Cosmos.Table;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Forkorta.Biz.DataConnector
 {
     public static class CommonOperations
     {
+        /// <summary>
+        /// Connect to the Azure Storage
+        /// </summary>
+        /// <param name="storageConnectionString">Connection String for Azure Stroage</param>
+        /// <returns></returns>
         private static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
         {
             CloudStorageAccount storageAccount;
@@ -27,6 +30,11 @@ namespace Forkorta.Biz.DataConnector
             return storageAccount;
         }
 
+        /// <summary>
+        /// Connect to Azure Table.
+        /// </summary>
+        /// <param name="storageConnectionString">Connection String for Azure Stroage</param>
+        /// <returns></returns>
         public static async Task<CloudTable> ConfigureTableAsync(string storageConnectionString)
         {
             string tableName = "datatable";
