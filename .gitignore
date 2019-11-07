@@ -13,3 +13,4 @@
 /Forkorta/.vs/Forkorta
 /Forkorta/Forkorta.Biz/bin
 /Forkorta/Forkorta.Biz/obj
+*.pubxml

@@ -37,7 +37,7 @@
                         data: JSON.stringify(payload),
                         success: function (response) {
 
-                            $("#shortedUrl").text("Shorted URL is : http://forkorta/" + response);
+                            $("#shortedUrl").text("Shorted URL is : https://forkorta.azurewebsites.net/" + response);
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
                             console.log(textStatus, errorThrown);
