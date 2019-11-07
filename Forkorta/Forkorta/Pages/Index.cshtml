@@ -4,7 +4,50 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
+<div class="text-center container-fluid">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="form-group">
+        <label for="pwd">Enter Url here:</label>
+        <div class="row">
+            <div class="col-10">
+                <input type="url" class="form-control" id="longUrl">
+            </div>
+            <div class="col-2">
+                <button type="button" id="shorturl" class="btn btn-block btn-primary">Short</button>
+            </div>
+        </div>
+        <div id="shortedUrl"></div>
+    </div>
 </div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('#shorturl').on('click', function () {
+                var longUrl = $('#longUrl').val();
+                if (/^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test(longUrl)) {
+                    var payload = {
+                        url: longUrl
+                    };
+
+                    $.ajax({
+                        url: "/api/ShortUrl",
+                        type: "post",
+                        contentType: "application/json",
+                        data: JSON.stringify(payload),
+                        success: function (response) {
+
+                            $("#shortedUrl").text("Shorted URL is : http://forkorta/" + response);
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.log(textStatus, errorThrown);
+                        }
+                    });
+                }
+                else {
+                    $("#shortedUrl").text("Please provide a valid URL");
+                }
+            });
+        });
+    </script>
+}
